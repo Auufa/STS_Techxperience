@@ -1,74 +1,132 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import { View, Text, Image, ScrollView } from 'react-native'
+import React from 'react'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import tw from 'twrnc';
+import { AntDesign, Entypo, Feather } from '@expo/vector-icons';
+import KotakIcon from '@/components/KotakIcon';
+import Card from '@/components/Card';
+import SatuButton from '@/components/SatuButton';
+import Duabutton from '@/components/Duabutton';
+import Buttongambar from '@/components/Buttongambar';
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
 
-export default function HomeScreen() {
+const homescreen = () => {
+  const dataCard = [
+    {title: 'Modul Akademi', icon: 'graduation-cap'},
+    {title: 'Community', icon: 'users'},
+    {title: 'ticket', icon: 'users'},
+    {title: 'Event', icon: 'chat'},
+  ]
+  const datacart = [
+    {title: 'Fundamental Belajar Design', description: ' Belajar design tu ga langsung gambar aja tau ada dasar dasarnya, belajar disini', image: require('@/assets/images/nulis.jpg')},
+    {title: 'Fundamental Belajar Design', description: ' Belajar design tu ga langsung gambar aja tau ada dasar dasarnya, belajar disini', image: require('@/assets/images/klik.jpg')},
+    {title: 'Fundamental Belajar Design', description: ' Belajar design tu ga langsung gambar aja tau ada dasar dasarnya, belajar disini', image: require('@/assets/images/koneksi.jpg')},
+    {title: 'Fundamental Belajar Design', description: ' Belajar design tu ga langsung gambar aja tau ada dasar dasarnya, belajar disini', image: require('@/assets/images/aplikasi.png')},
+  ]
+
+  const databutton = ["Hackaton", "Design Web", "Workshop", "Lomba"]
+
+  const datagambar = [
+    {image: require('@/assets/images/nulis.jpg')},
+    {image: require('@/assets/images/nulis.jpg')},
+  ]
+  const datagambar1 = [
+    {image: require('@/assets/images/nulis.jpg')},
+    {image: require('@/assets/images/nulis.jpg')},
+  ]
+  const datatext = [
+    {title: 'Techxperience', image: require('@/assets/images/tangan.png')},
+    {title: 'Pengembangan Usaha', image: require('@/assets/images/transfer.png')},
+    {title: 'Beasiswa Kuliah', image: require('@/assets/images/uang.png')},
+    {title: 'Techxperience Roadmap', image: require('@/assets/images/kertas.png')}
+  ]
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12'
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
-  );
+    <SafeAreaView style={tw`bg-black flex-1`}>
+      <ScrollView>
+        <View style={tw`pt-3 flex-row gap-30`}>
+            <View>
+                <Image source={require('@/assets/images/Tech.png')} style={tw`w-40 h-9`}></Image>
+            </View>
+            <View style={tw`flex-row gap-7 pt-3`}>
+                <AntDesign name='search1' color={'white'} size={22}></AntDesign>
+                <Entypo name='bell' color={'white'} size={22}></Entypo>
+                <AntDesign name='user' color={'white'} size={22}></AntDesign>
+            </View>
+        </View>
+
+        <View>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            <View style={tw`flex-row gap-3 pt-4`}>
+              <Image source={require('@/assets/images/sahabatganjar.jpg')} style={tw`w-85 h-50 rounded-lg`} resizeMode='stretch'/>
+              <Image source={require('@/assets/images/sahabatganjar.jpg')} style={tw`w-85 h-50 rounded-lg`} resizeMode='stretch'/>
+            </View>
+          </ScrollView>
+        </View>
+
+        <View style={tw`flex-row gap-6 pt-4 flex-wrap`}>
+        {dataCard.map((items) => (
+                <KotakIcon title={items.title} Icon={items.icon}/>
+            ))}
+        </View>
+
+        <View style={tw`pt-7 flex-row gap-37`}>
+          <Text style={tw`text-white font-bold text-5l `}>Mau belajar apa ini</Text>
+          <Text style={tw`text-white font-bold pt-2 text-4l`}>Lihat semua</Text>
+        </View>
+
+        <View style={tw`pt-2 flex-row flex-wrap justify-between`}>
+            {datacart.map((items) => (
+              <Card title={items.title} description={items.description} image={items.image}/>
+            ))}
+        </View>
+
+        <View style={tw`pt-7 flex-row gap-35`}>
+          <Text style={tw`text-white font-bold text-5l `}>Ikuti Event Terdekat</Text>
+          <Text style={tw`text-white font-bold pt-2 text-4l`}>Lihat semua</Text>
+        </View>
+        
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          <View style={tw`flex-row gap-2 mt-2`}>
+              {databutton.map((items) => (
+                <Duabutton label={items}/>
+              ))}
+          </View>
+        </ScrollView>
+        
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          <View style={tw`flex-row flex-wrap justify-between pt-4 gap-2`}>
+            {datagambar.map((items) => (
+              <SatuButton image={items.image}/>
+            ))}
+          </View>
+        </ScrollView>
+
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          <View style={tw`flex-row flex-wrap justify-between pt-4 gap-2`}>
+            {datagambar.map((items) => (
+              <SatuButton image={items.image}/>
+            ))}
+          </View>
+        </ScrollView>
+
+        <View style={tw`pt-7 flex-row gap-25`}>
+          <Text style={tw`text-white font-bold text-5l `}>Program Techxperience</Text>
+          <Text style={tw`text-white font-bold pt-2 text-4l`}>Lihat semua</Text>
+        </View>
+
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            <View style={tw`flex-row gap-3 pt-2 mb-9`}>
+              {datatext.map((items) => (
+                <Buttongambar title={items.title} image={items.image} />
+              ))}
+            </View>
+        </ScrollView>
+
+        
+        </ScrollView>
+    </SafeAreaView>
+    
+  )
 }
 
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
-});
+export default homescreen

@@ -35,6 +35,8 @@ export default function RootLayout() {
         <Stack.Screen name="auth/login" options={{ headerShown: false }} />
         <Stack.Screen name="auth/daftar" options={{ headerShown: false }} />
         <Stack.Screen name="auth/survey" options={{ headerShown: false }} />
+        <Stack.Screen name="auth/homescreen" options={{ headerShown: false }} />
+        <Stack.Screen name="auth/lanjutakade" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>
       <StatusBar style="auto" />

@@ -27,7 +27,7 @@ const login = () => {
             </View>
 
             <View style={tw`pt-3`}> 
-                <Button title='Masuk' bgBtn='blue-400' bgText='white ' rute='/auth/login'/> 
+                <Button title='Masuk' bgBtn='blue-400' bgText='white ' rute='/(tabs)/home'/> 
             </View>
 
             <View style={tw`flex-row justify-center pt-3 gap-1`}>
@@ -35,7 +35,7 @@ const login = () => {
                 <Text style={tw`text-blue-400 text-sm font-bold`}  onPress={() => navigation.navigate("/auth/daftar")}>Daftar dulu!</Text>
             </View>
 
-            <View style={tw`pt-11`}>
+            <View style={tw`pt-11`}> 
                 <Text style={tw`text-white text-center text-sm pt-3`}>Atau mau masuk melalui?</Text>
                 <Text style={tw`rounded-lg bg-gray-800 h-1 `}></Text>
 
